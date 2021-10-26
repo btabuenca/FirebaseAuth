@@ -16,8 +16,6 @@
 
 package es.upm.miw.firebaseauth;
 
-// https://github.com/firebase/quickstart-android/blob/master/auth/app/src/main/java/com/google/firebase/quickstart/auth/java/EmailPasswordActivity.java
-
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -42,9 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     static final String LOG_TAG = "MiW";
 
-    // [START declare_auth]
     private FirebaseAuth mAuth;
-    // [END declare_auth]
 
     private EditText mEmailField;
     private EditText mPasswordField;
@@ -63,13 +59,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.buttonAnonymousSignOut).setOnClickListener(this);
         findViewById(R.id.statusSwitch).setClickable(false);
 
-        // [START initialize_auth]
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-        // [END initialize_auth]
+
     }
 
-    // [START on_start_check_user]
+
     @Override
     public void onStart() {
         super.onStart();
@@ -77,9 +72,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
-    // [END on_start_check_user]
 
-    // https://github.com/firebase/quickstart-android/blob/master/auth/app/src/main/java/com/google/firebase/quickstart/auth/java/AnonymousAuthActivity.java
+
+
     @Override
     public void onClick(View v) {
         int i = v.getId();
