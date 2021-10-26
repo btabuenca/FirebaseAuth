@@ -141,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             uidView.setText(R.string.signed_in);
             emailView.setText(getString(R.string.email_fmt, user.getEmail()));
             Log.i(LOG_TAG, "signedIn: " + getString(R.string.id_fmt, user.getDisplayName()));
+            // Here you should probably instantiate an Intent to move forward within you app
         } else {
             uidView.setText(R.string.signed_out);
             emailView.setText(null);
