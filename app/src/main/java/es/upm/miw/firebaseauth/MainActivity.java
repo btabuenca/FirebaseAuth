@@ -22,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    static final String LOG_TAG = "MiW";
+    static final String LOG_TAG = "btb";
 
     private FirebaseAuth mAuth;
 
@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
-
 
 
     @Override
@@ -133,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void updateUI(FirebaseUser user) {
         TextView uidView = findViewById(R.id.statusId);
         TextView emailView = findViewById(R.id.statusEmail);
+
         Switch mSwitch = findViewById(R.id.statusSwitch);
         boolean isSignedIn = (user != null);
 
@@ -140,8 +140,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (isSignedIn) {
             uidView.setText(R.string.signed_in);
             emailView.setText(getString(R.string.email_fmt, user.getEmail()));
+            mPasswordField.setText("");
+            mEmailField.setText("");
             Log.i(LOG_TAG, "signedIn: " + getString(R.string.id_fmt, user.getDisplayName()));
-            // Here you should probably instantiate an Intent to move forward within you app
+            // Here you should instantiate an Intent to move forward within you app
         } else {
             uidView.setText(R.string.signed_out);
             emailView.setText(null);
